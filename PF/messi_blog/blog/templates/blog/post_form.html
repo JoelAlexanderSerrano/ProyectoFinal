@@ -1,0 +1,55 @@
+{% extends 'blog/padre.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Crear Post</h2>
+        <form method="post" enctype="multipart/form-data" class="post-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">Título:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="id_content">Contenido:</label>
+                {{ form.content }}
+            </div>
+            <div class="form-group">
+                <label for="id_image">Imagen:</label>
+                <input type="file" name="image" id="id_image" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Publicar</button>
+        </form>
+    </div>
+{% endblock %}
+
+<style>
+    /* Estilos para el formulario */
+    .post-form {
+        width: 400px; /* Ancho del formulario */
+        margin: 0 auto; /* Centrar el formulario en la página */
+    }
+
+    /* Estilos para los campos del formulario */
+    .form-group {
+        margin-bottom: 20px; /* Espacio entre los campos */
+    }
+
+    label {
+        display: block; /* Mostrar etiquetas en una línea separada */
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+        width: 100%; /* Ancho completo para campos de texto y de archivo */
+        padding: 10px; /* Añadir relleno */
+        box-sizing: border-box; /* Incluir el relleno y el borde en el ancho */
+    }
+
+    button {
+        display: block; /* Mostrar el botón en una línea separada */
+    }
+</style>
+
+
+
