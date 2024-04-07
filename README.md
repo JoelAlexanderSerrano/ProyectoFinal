@@ -18,7 +18,19 @@ podemos ejecutar python manage.py runserver para iniciar el proyecto.
 
 direccion y presionar la tecla ctrl + click izquierdo.
 
-#############################################################
+######################################
+Usuarios de prueba admin y prueba
+
+El user admin es el super usuario.
+
+datos de logueo
+user: admin
+pass: admincas
+
+user: prueba
+password: messi1987
+
+#####################################
 
 El proyecto se basa completamente en el modelo trabajado en clase MVT (Model, view, template) el cual como base usamos una 
 
