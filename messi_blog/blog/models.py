@@ -23,4 +23,4 @@ class Avatar(models.Model):
 def create_user_avatar(sender, instance, created, **kwargs):
     if created:
         # Crear un avatar predeterminado para el nuevo usuario
-        Avatar.objects.create(user=instance, image='path_to_default_avatar.jpg')
+        Avatar.objects.create(user=instance, image='default_avatar.png')

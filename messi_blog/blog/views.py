@@ -60,11 +60,17 @@ class SignUpView(CreateView):
         # Guardar el usuario
         response = super().form_valid(form)
         # Asignar avatar predeterminado
-        default_avatar = Avatar.objects.get(name='default_avatar')
+        default_user, created = User.objects.get_or_create(username='default_avatar_user')
+        print("Usuario predeterminado:", default_user.username)
+        default_avatar, created = Avatar.objects.get_or_create(user=default_user, defaults={'image': 'avatars/default_avatar.png'})
+        print("Avatar predeterminado:", default_avatar.image.url)
         self.object.avatar = default_avatar
         self.object.save()
+        print("Avatar asignado al usuario:", self.object.username)
         # Mensaje de éxito
         messages.success(self.request, '¡Te has registrado exitosamente!')
+        print("Ruta de la imagen del avatar predeterminado:", default_avatar.image.url)
+
         return response
 
 class MyLoginView(LoginView):
